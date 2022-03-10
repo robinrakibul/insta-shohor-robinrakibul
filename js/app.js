@@ -60,6 +60,8 @@ const createPost = (post) => {
     div.classList.add( "post" );
     // checking userImage with console.log
     console.log(userProfileImage);
+    // checking username with console.log
+    console.log(post.comments[0].user);
     div.innerHTML = `
               <div class="post__header">
                 <div class="post__profile">
@@ -126,7 +128,7 @@ const createPost = (post) => {
                   <div class="post__description">
                     <small>
                       <a class="post__name--underline" href="#">
-                          ${post.comments?.user}
+                          ${post.comments[0]?.user}
                       </a>
                       ${post.comments?.text}
                     </small>
