@@ -64,9 +64,8 @@ const createPost = (post) => {
     // console.log(userProfileImage);
     // checking username with console.log
     // console.log(post.comments[0].user);
+
     // 4. Who commented, what is the comment, undefined error fixed.
-    const div = document.createElement( "article" );
-    div.classList.add( "post" );
     div.innerHTML = `
               <div class="post__header">
                 <div class="post__profile">
