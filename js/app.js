@@ -21,9 +21,12 @@ const addToLiked = (id) => {
     showPosts(posts);
 };
 
+const isReported = (id) => {
+    posts.filter((post) => !reportedPostsId.includes(post.id));
+}
+
 const reportPost = (id) => {
     reportedPostsId.push(id);
-    const remainingPosts = posts.filter((post) => !reportedPostsId.includes(post.id));
     showPosts(remainingPosts);
 };
 
@@ -43,6 +46,8 @@ const switchTab = (id) => {
         document.getElementById( "reported" ).style.display = "none";
 
         displayLikedPosts();
+        // Fixed issues repeated liked posts
+        likedPostsId = '';
     } else {
         document.getElementById( "reported" ).style.display = "block";
         document.getElementById( "posts" ).style.display = "none";
@@ -51,6 +56,7 @@ const switchTab = (id) => {
         displayReportedPosts();
     }
 };
+
 
 const createPost = (post) => {
     const image = post.image;
@@ -104,7 +110,7 @@ const createPost = (post) => {
                   <div class="post__indicators"></div>
 
                   <button class="post__button post__button--align-right" onclick="reportPost(${post.id})">
-                    <i class="fa-solid fa-ban"></i>
+                    <i class="fa-solid fa-ban ${isReported(post.id)}"></i>
                   </button>
                 </div>
 
