@@ -1,7 +1,7 @@
 let posts=[ ];
 
 let likedPostsId = [];
-const reportedPostsId = [];
+let reportedPostsId = [];
 
 const getLikedPosts = () => {
     return posts.filter((post) => likedPostsId.includes(post.id));
@@ -27,6 +27,7 @@ const isReported = (id) => {
 
 const reportPost = (id) => {
     reportedPostsId.push(id);
+    const remainingPosts = posts.filter((post) => !reportedPostsId.includes(post.id));
     showPosts(remainingPosts);
 };
 
@@ -54,6 +55,8 @@ const switchTab = (id) => {
         document.getElementById( "liked" ).style.display = "none";
 
         displayReportedPosts();
+        // Fixed issues with repeated report posts
+        reportedPostsId = '';
     }
 };
 
@@ -164,7 +167,8 @@ const displayLikedPosts = () => {
 
 const displayReportedPosts = () => {
     const reportedPosts = getReportedPosts();
-    posts.forEach((post) => {
+    // bug fixed for reported post
+    reportedPosts.forEach((post) => {
         const div = createPost(post);
         document.getElementById( "reported" ).appendChild(div);
     });
