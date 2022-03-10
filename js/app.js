@@ -53,10 +53,12 @@ const switchTab = (id) => {
 
 const createPost = (post) => {
     const image = post.image;
+    // adding variable to store user profile picture
+    const userProfileImage = post.userImage;
     const div = document.createElement( "article" );
     div.classList.add( "post" );
     // checking userImage with console.log
-    console.log(image);
+    console.log(userProfileImage);
     div.innerHTML = `
               <div class="post__header">
                 <div class="post__profile">
@@ -65,7 +67,7 @@ const createPost = (post) => {
                     target="_blank"
                     class="post__avatar"
                   >
-                    <img src="${image}" alt="User Picture" />
+                    <img src="${userProfileImage}" alt="User Picture" />
                   </a>
                   <a href="#" class="post__user">phero</a>
                 </div>
