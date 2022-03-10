@@ -52,8 +52,6 @@ const switchTab = (id) => {
     }
     // Fixed issues repeated liked posts page
     likedPostsId = '';
-    // Fixed repeated posts on report page
-    reportedPostsId = '';
 };
 
 
