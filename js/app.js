@@ -59,9 +59,9 @@ const createPost = (post) => {
     const div = document.createElement( "article" );
     div.classList.add( "post" );
     // checking userImage with console.log
-    console.log(userProfileImage);
+    // console.log(userProfileImage);
     // checking username with console.log
-    console.log(post.comments[0].user);
+    // console.log(post.comments[0].user);
     div.innerHTML = `
               <div class="post__header">
                 <div class="post__profile">
@@ -103,9 +103,7 @@ const createPost = (post) => {
 
                   <div class="post__indicators"></div>
 
-                  <button class="post__button post__button--align-right" onclick="reportPost(${
-                      post.id
-                  })">
+                  <button class="post__button post__button--align-right" onclick="${post.id}">
                     <i class="fa-solid fa-ban"></i>
                   </button>
                 </div>
