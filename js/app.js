@@ -1,6 +1,6 @@
 let posts=[ ];
 
-const likedPostsId = [];
+let likedPostsId = [];
 const reportedPostsId = [];
 
 const getLikedPosts = () => {
@@ -50,6 +50,10 @@ const switchTab = (id) => {
 
         displayReportedPosts();
     }
+    // Fixed issues repeated liked posts page
+    likedPostsId = '';
+    // Fixed repeated posts on report page
+    reportedPostsId = '';
 };
 
 
@@ -154,7 +158,7 @@ const displayLikedPosts = () => {
 
 const displayReportedPosts = () => {
     const reportedPosts = getReportedPosts();
-    posts.forEach((post) => {
+    reportedPosts.forEach((post) => {
         const div = createPost(post);
         document.getElementById( "reported" ).appendChild(div);
     });
